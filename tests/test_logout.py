@@ -1,4 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
+
+import constants
 from locators import Locators
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -8,4 +10,4 @@ class TestLogout:
         WebDriverWait(driver, 5).until(EC.presence_of_element_located(Locators.LOGOUT))
         driver.find_element(*Locators.LOGOUT).click()
         WebDriverWait(driver,5).until(EC.presence_of_element_located(Locators.ENTRANCE_HEADER))
-        assert driver.current_url == 'https://stellarburgers.nomoreparties.site/login'
+        assert driver.current_url == constants.LOGIN_PAGE_LINK
